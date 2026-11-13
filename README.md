@@ -12,7 +12,7 @@ QAICK is currently focused on **API automation and testing**, not browser UI aut
 
 ## Downloads
 
-After the beta release is published, download the installer for your operating system from [GitHub Releases](https://github.com/vladmus/QAICK-Releases/releases).
+Download the public Beta 1 installer for your operating system from [GitHub Releases](https://github.com/vladmus/QAICK-Releases/releases/tag/v1.0.0-rc.1).
 
 | Operating system | Installer |
 | --- | --- |
@@ -23,6 +23,10 @@ After the beta release is published, download the installer for your operating s
 **Beta limitations:** The macOS build is not Developer ID notarized and the Windows build is unsigned. macOS Gatekeeper and Windows SmartScreen may require a user-initiated exception. Do not disable operating-system security protections globally. Linux AppImage extract-and-run has been verified; FUSE/double-click launch has not.
 
 Check downloaded files against the SHA-256 digests in [SHA256SUMS](SHA256SUMS).
+
+## Security and privacy
+
+Read our [Beta 1 Security & Privacy Information](SECURITY-AND-PRIVACY.md) for confirmed local storage behavior, full-fidelity credential/evidence handling, third-party spellchecking network activity, and verification limitations.
 
 ## Release status
 
