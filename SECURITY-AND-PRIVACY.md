@@ -1,52 +1,49 @@
 # QAICK Desktop — Security & Privacy
 
-**Applies to:** QAICK Desktop Beta 1 (`1.0.0-rc.1`)  
-**Last updated:** November 13, 2026
+**Beta 1 · Version `1.0.0-rc.1` · November 13, 2026**
 
-QAICK Desktop is a freeware application for creating, saving and running API workflows. This page explains how the current beta handles Projects, execution results, credentials and network communication.
+QAICK Desktop is a local application for building, running and reviewing API workflows. Your Projects, API requests and execution results remain under your control.
 
-## Your Projects and execution results
+## Data collection and privacy
 
-QAICK Desktop saves Projects as JSON files in a location you choose. It remembers the selected Project location in the application's local profile.
+**QAICK Desktop does not collect usage analytics or application telemetry.**
 
-QAICK Runner keeps execution History in local application-profile storage. You can copy execution information and export results to JSON files. Studio's current Live Run view and Runner's saved History are separate.
+QAICK does not automatically upload your Projects, credentials or execution History to Zerohead One. It does not synchronize these records to a Zerohead One cloud service.
 
-Project files may also reside in folders you have configured for cloud synchronization or on network drives. Those locations are managed by you and your operating system.
+Your API workflows execute from your computer. **HTTP and HTTPS requests are sent directly to the destinations resolved from your configured Actions and bindings**, not through Zerohead One servers. As with any API client, those requests can include the headers, credentials, bodies and other data you choose to send.
 
-## API requests and network connections
+## Local data storage
 
-QAICK Desktop executes HTTP and HTTPS requests using the destinations configured in your API Actions. Inputs and output bindings can determine the final request URL, headers and body. A request can transmit those values to the destination API, including credentials or other sensitive data that you configure.
+- **Projects:** Stored as JSON files at locations you select.
+- **Execution History:** Stored in QAICK's local application profile.
+- **Results:** Available for inspection, copying and export to local files.
 
-Desktop API execution uses the native application runtime rather than routing your configured requests through a Zerohead One API-execution service. QAICK Desktop does not provide automatic cloud synchronization of Projects or Runner History to Zerohead One.
+If you save a Project in a cloud-synchronized folder or network drive, the storage and synchronization behavior of that location applies.
 
-The application is built on Electron/Chromium, which may also make operating-system or browser-engine network connections independently of your API workflows. For example, Chromium can download spelling dictionaries from Google's content-delivery network and perform proxy-discovery or network-reachability checks. These connections are distinct from user-configured API execution.
+## Credentials and execution evidence
 
-## Credentials and sensitive information
+QAICK retains detailed API request and response evidence to support investigation and repeatable workflows.
 
-QAICK preserves full execution evidence by design. Depending on the API workflow, **saved Projects, Runner History, copied results and exported JSON may contain readable**:
+**Projects, History, copied results and exported files may contain readable API credentials and sensitive response data**, including authorization headers, API keys and cookies. This is intentional full-fidelity evidence retention.
 
-- Authorization headers, API keys, cookies and other request credentials.
-- Request URLs, parameters, headers and bodies.
-- API response headers, bodies and values passed between Actions.
+QAICK Desktop Beta 1 does not include an application-managed encrypted credential vault. Protect Project and result files using your operating system's access controls. Review any evidence before sharing it, and remember that copied data may remain in your clipboard or clipboard history.
 
-QAICK Desktop Beta 1 stores Project configuration and execution evidence locally in readable formats. It does **not** provide an application-managed encrypted credentials vault. Masking a value in a screen does not necessarily remove it from saved or exported evidence.
+## Other network activity
 
-**Treat Projects and execution results as sensitive data.** Store them in appropriately protected folders, review exports before sharing, and be aware that clipboard contents can be accessible to other applications or clipboard-history tools.
+QAICK is built on Electron/Chromium. Alongside your API requests, Chromium may make its own supporting network connections—for example, downloading spellchecking dictionaries or performing proxy and network-connectivity checks. These are platform functions, not QAICK usage analytics or uploads of your Projects to Zerohead One.
 
-For initial evaluation, use development environments and test credentials rather than production secrets.
+## Desktop and web demos
 
-## Desktop and browser demos
+This page describes **QAICK Desktop**. The hosted Studio and Runner web demos operate in a browser, where storage, networking and redirect behavior follow browser rules.
 
-The downloadable Desktop application and the hosted Studio/Runner web demos use different environments. Desktop Projects use native files and the local application profile; browser versions use browser-managed storage and networking. Browser requests and redirects follow browser behavior and policies.
+## Official downloads
 
-## Software distribution
+Get the application from the [official QAICK Desktop Beta 1 release](https://github.com/vladmus/QAICK-Releases/releases/tag/v1.0.0-rc.1). [SHA-256 checksums](SHA256SUMS) are provided to verify downloads.
 
-Download QAICK Desktop from the [official Beta 1 release](https://github.com/vladmus/QAICK-Releases/releases/tag/v1.0.0-rc.1). Installer checksums are available in [SHA256SUMS](SHA256SUMS).
+Beta 1 is distributed without a signed Windows installer or Apple notarization. Your operating system may show a publisher or security warning; review the download source and checksum before proceeding.
 
-The Windows installer is unsigned, and the macOS application is not Apple notarized. Follow your operating system's per-application guidance when deciding whether to install or run the beta. Do not disable system-wide security protections.
+## Questions
 
-## Questions and feedback
-
-For product information and contact details, visit [Zerohead One](https://zerohead-one.com/). When reporting an issue, avoid sharing credentials, private Projects or unreviewed execution logs.
+Visit [Zerohead One](https://zerohead-one.com/) for product information and contact details. Please avoid including credentials, private Projects or unreviewed execution logs in public feedback.
 
 © 2026 Zerohead One Inc.
