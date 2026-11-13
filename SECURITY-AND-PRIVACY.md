@@ -32,6 +32,24 @@ QAICK Desktop Beta 1 does not include an application-managed encrypted credentia
 
 QAICK is built on Electron/Chromium. Alongside your API requests, Chromium may make its own supporting network connections—for example, downloading spellchecking dictionaries or performing proxy and network-connectivity checks. These are platform functions, not QAICK usage analytics or uploads of your Projects to Zerohead One.
 
+## Privacy verification — Linux and Windows
+
+On **November 13, 2026**, Zerohead One performed hands-on privacy and network verification of the **installed QAICK Desktop Beta 1 production application** on **Linux Mint 22.3** and **Windows 10 x64**. The checks combined production-code inspection, process-aware network observation and controlled API requests using synthetic data.
+
+Both platforms were exercised through Project saving, HTTP Send, multi-Action Stream execution with output bindings, integrated Runner execution, History, Copy and JSON export. Windows History persistence was also confirmed after an application restart.
+
+**Results of the Linux and Windows verification:**
+
+- **Local storage confirmed:** Projects and Runner History were saved locally, and exported results retained their expected contents.
+- **Direct API communication confirmed:** Controlled HTTP requests reached their configured test-server destinations, with data passed correctly between dependent Actions.
+- **No Zerohead One data uploads observed:** Neither test recorded transmission of Projects or execution results to Zerohead One.
+- **No QAICK telemetry observed:** Neither test recorded QAICK usage analytics or telemetry transmission.
+- **Full-fidelity evidence confirmed:** Saved Projects and execution evidence retained configured synthetic credentials, consistent with the behavior described above.
+
+The network checks also distinguished supporting Chromium activity from API execution: Linux downloaded a spelling dictionary, while Windows recorded proxy-discovery and IPv6 reachability activity.
+
+These are **product verification results on the tested Linux and Windows configurations**, not a claim of independent security certification.
+
 ## Desktop and web demos
 
 This page describes **QAICK Desktop**. The hosted Studio and Runner web demos operate in a browser, where storage, networking and redirect behavior follow browser rules.
