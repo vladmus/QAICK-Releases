@@ -1,73 +1,52 @@
-# QAICK Desktop Beta 1 — Security & Privacy Information
+# QAICK Desktop — Security & Privacy
 
-**Published:** November 13, 2026  
 **Applies to:** QAICK Desktop Beta 1 (`1.0.0-rc.1`)  
-**Status:** Public technical disclosure based on bounded source review and installed Linux and Windows production-build observations. **Not an independent security audit or certification.**
+**Last updated:** November 13, 2026
 
-This document describes confirmed behavior, limitations, and verification scope. It does not promise that every component, platform, future build, or possible user workflow has been assessed.
+QAICK Desktop is a freeware application for creating, saving and running API workflows. This page explains how the current beta handles Projects, execution results, credentials and network communication.
 
-## Summary
+## Your Projects and execution results
 
-- **Project storage:** QAICK Desktop saves Projects as JSON files at a location selected by the user. The application stores the selected file location in its local profile.
-- **Runner History:** Saved execution History uses local application-profile storage; results can be copied or exported as JSON. Studio's transient Live Run state is not the same as durable Runner History.
-- **Credentials and evidence:** Project configuration, execution History, Copy and exported results **can contain readable API credentials, headers, cookies, input values and response data**. This is intentional full-fidelity behavior. QAICK Beta 1 does **not** provide an application-level encrypted vault for API credentials. Treat Project and evidence files as sensitive.
-- **API requests:** Desktop HTTP execution sends requests to resolved user-configured HTTP(S) destinations; variable bindings can affect the destination. Controlled Linux and Windows tests confirmed the configured destinations and dependency propagation. The inspected native transport did not follow a tested HTTP 302 redirect. Browser execution can behave differently.
-- **Uploads to Zerohead One:** The reviewed production components and bounded Linux and Windows observations identified **no application telemetry or automatic Project/results upload to Zerohead One servers**. This is limited evidence, **not a universal guarantee that data never leaves the machine**. User-configured API requests and Scripts can communicate with external services.
-- **Automatic third-party contacts:** On a fresh Linux application profile, Chromium automatically downloaded a British English spellchecking dictionary from Google's CDN, without running any API workflow. Consequently, QAICK Beta 1 **is not accurately described as having no automatic external network connections**. The observed dictionary request is not evidence that Project contents or credentials were uploaded.
+QAICK Desktop saves Projects as JSON files in a location you choose. It remembers the selected Project location in the application's local profile.
 
-## What was verified
+QAICK Runner keeps execution History in local application-profile storage. You can copy execution information and export results to JSON files. Studio's current Live Run view and Runner's saved History are separate.
 
-CODI inspected the frozen product source and installed dependencies corresponding to Beta 1, and observed the production-mode Linux DEB with an isolated application profile and synthetic data. Activities included startup and idle, Project open/edit/save, ordinary HTTP Send, a two-Action dependency Stream, integrated Runner, History/export/Copy, an HTTP redirect response, a failed connection and application shutdown.
+Project files may also reside in folders you have configured for cloud synchronization or on network drives. Those locations are managed by you and your operating system.
 
-The tested Linux application used a local HTTP test server. The controlled requests reached configured loopback endpoints; no alternate HTTP API destination was observed in that test. A fresh-start automatic spelling-dictionary download was independently reproduced through process-aware networking evidence and Chromium NetLog.
+## API requests and network connections
 
-**Not verified in this report:** Windows/macOS runtime network behavior; live web-demo network traffic; every possible user Script; long-duration automatic checks; all retry permutations; or decrypted contents of third-party HTTPS connections. Absence of a connection during the bounded run cannot prove absence in every future run.
+QAICK Desktop executes HTTP and HTTPS requests using the destinations configured in your API Actions. Inputs and output bindings can determine the final request URL, headers and body. A request can transmit those values to the destination API, including credentials or other sensitive data that you configure.
 
-## Windows verification addendum — November 13, 2026
+Desktop API execution uses the native application runtime rather than routing your configured requests through a Zerohead One API-execution service. QAICK Desktop does not provide automatic cloud synchronization of Projects or Runner History to Zerohead One.
 
-A second bounded observation used the installed **Windows 10 Home x64** production-mode QAICK Desktop Beta 1 (Studio `0.11.46`, integrated Runner `0.32.34`) and a **synthetic Project in an existing application profile**. The owner explicitly permitted that narrow test. The profile was not fresh, and unrelated stored results were not inspected.
+The application is built on Electron/Chromium, which may also make operating-system or browser-engine network connections independently of your API workflows. For example, Chromium can download spelling dictionaries from Google's content-delivery network and perform proxy-discovery or network-reachability checks. These connections are distinct from user-configured API execution.
 
-- **Local data:** The synthetic Project was saved as local JSON; the application-profile association referenced it. Integrated Runner History survived a complete application shutdown and restart. Synthetic Authorization/Cookie values were readable in Project configuration, local History, native Copy and JSON export, consistent with the intentional full-fidelity model.
-- **Controlled requests:** Ordinary Send, two-Action Stream with output bindings, integrated Runner and a 302 redirect test contacted the configured loopback fixture at `127.0.0.1:5197`. The tested native HTTP 302 response was not followed. No alternate API destination was observed in that controlled test.
-- **Uploads / telemetry:** No uploads to Zerohead One or analytics/telemetry/update/crash-report transmission were identified during the observed startup, idle, workflow, History/export and shutdown activity. A crash was not induced. This is **not** a guarantee of absence in untested conditions.
-- **Automatic Windows behavior:** Chromium performed automatic **WPAD proxy-discovery attempts** (DHCP/PAC and `wpad` DNS resolution, without a confirmed HTTP proxy connection) and **IPv6 reachability probes** (failed UDP socket connects). These are not evidence of Project/credential uploads or successful external payload transmission, but they mean startup networking cannot be described as categorically absent.
-- **Not established:** Fresh-profile spelling-dictionary behavior on Windows; installed-file byte-for-byte equivalence with extracted installer payload; crash-triggered or long-duration traffic. The installed product/version metadata matched the released candidate, but the installed executable was not independently compared to the installer payload.
+## Credentials and sensitive information
 
-This Windows result complements but does not replace the Linux observation. Raw network traces and synthetic credential evidence remain private.
+QAICK preserves full execution evidence by design. Depending on the API workflow, **saved Projects, Runner History, copied results and exported JSON may contain readable**:
 
-## macOS verification status — November 13, 2026
+- Authorization headers, API keys, cookies and other request credentials.
+- Request URLs, parameters, headers and bodies.
+- API response headers, bodies and values passed between Actions.
 
-The installed macOS production build was identified, but an attempted isolated-profile launch still resolved to the existing real user's `~/Library/Application Support/qaick-studio` profile. To protect user data, the investigator did **not** open that Project, create synthetic data or run the requested workflow. **All six macOS privacy/network dispositions remain NOT VERIFIED.** A clean macOS test account or other safely isolated environment is needed before making macOS-specific claims.
+QAICK Desktop Beta 1 stores Project configuration and execution evidence locally in readable formats. It does **not** provide an application-managed encrypted credentials vault. Masking a value in a screen does not necessarily remove it from saved or exported evidence.
 
-## Protecting your API data
+**Treat Projects and execution results as sensitive data.** Store them in appropriately protected folders, review exports before sharing, and be aware that clipboard contents can be accessible to other applications or clipboard-history tools.
 
-- Use test credentials and non-sensitive API data when evaluating the beta.
-- Keep Project JSON files, local Runner History and exported evidence in locations protected by your operating-system account and file permissions.
-- Review exports, copied evidence and screenshots **before sharing**. Full-fidelity artifacts may include secrets; ordinary UI masking does not remove their values from stored results.
-- Avoid saving real production credentials as literal inputs or headers unless you accept that those values may be present in readable local artifacts.
-- User-selected Project destinations may be network-mounted or cloud-synchronized folders; control over those folders belongs to the user and their environment.
-- Clipboard contents may be accessible to other software or clipboard-history services on the same device. Clear the clipboard when appropriate.
+For initial evaluation, use development environments and test credentials rather than production secrets.
 
-## Browser demos versus Desktop
+## Desktop and browser demos
 
-The hosted Studio and Runner web demos are distinct from the native Desktop application. Browser storage, browser networking, hosted page delivery and redirect behavior may differ. These Linux and Windows Desktop observations do not certify the hosted demos' data-handling behavior.
+The downloadable Desktop application and the hosted Studio/Runner web demos use different environments. Desktop Projects use native files and the local application profile; browser versions use browser-managed storage and networking. Browser requests and redirects follow browser behavior and policies.
 
-## Known limitations and planned checks
+## Software distribution
 
-- **Spellchecking:** Linux Beta 1 may automatically contact Google's CDN to download a spelling dictionary. A future product decision will consider disabling automatic spellchecking/dictionary downloads; no change has been made to Beta 1.
-- **Windows:** Existing-profile native observation identified WPAD/proxy-discovery and failed IPv6 probes; fresh-profile dictionary behavior remains unverified.
-- **macOS:** An attempted verification was stopped because the test could not be isolated from an existing user profile. No macOS network or storage findings were established.
-- **Local storage protection:** Current Project/evidence storage is not an application-encrypted secrets vault. Full evidence retention is intentional; users are responsible for protecting and sharing those files appropriately.
-- **Other security matters:** This document does not claim formal security certification, comprehensive penetration testing, or that every security-hardening topic is closed.
+Download QAICK Desktop from the [official Beta 1 release](https://github.com/vladmus/QAICK-Releases/releases/tag/v1.0.0-rc.1). Installer checksums are available in [SHA256SUMS](SHA256SUMS).
 
-## Release integrity
+The Windows installer is unsigned, and the macOS application is not Apple notarized. Follow your operating system's per-application guidance when deciding whether to install or run the beta. Do not disable system-wide security protections.
 
-Use the official [Beta 1 release](https://github.com/vladmus/QAICK-Releases/releases/tag/v1.0.0-rc.1) and verify the downloaded installer against [SHA256SUMS](SHA256SUMS). The Windows installer is unsigned; the macOS DMG is not Apple notarized.
+## Questions and feedback
 
-## Scope and provenance
-
-The underlying November 13, 2026 verification report examined QAICK Studio `0.11.46`, Runner `0.32.34`, Runtime `0.4.14`, HTTP Executor `0.2.28`, Executor `0.4.13`, Contract `0.7.5`, and Electron `44.10.2`. Linux was tested using the distributed DEB package with an isolated profile. Windows was tested in the installed native application using an owner-authorized synthetic Project within an existing profile. The macOS investigation stopped before touching real user Project data. Raw traces and synthetic result files were **not** published.
-
-Questions or reports: see [zerohead-one.com](https://zerohead-one.com/). Do **not** include credentials, private Projects or raw execution results in public reports.
+For product information and contact details, visit [Zerohead One](https://zerohead-one.com/). When reporting an issue, avoid sharing credentials, private Projects or unreviewed execution logs.
 
 © 2026 Zerohead One Inc.
