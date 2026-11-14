@@ -62,6 +62,6 @@ Beta 1 is distributed without a signed Windows installer or Apple notarization. 
 
 ## Questions
 
-Visit [Zerohead One](https://zerohead-one.com/) for product information and contact details. Please avoid including credentials, private Projects or unreviewed execution logs in public feedback.
+For product questions or security and privacy concerns, contact **Zerohead One Inc.** at [zeroheadone@gmail.com](mailto:zeroheadone@gmail.com). Product information is available at [zerohead-one.com](https://zerohead-one.com/). Please avoid including credentials, private Projects or unreviewed execution logs in initial reports.
 
 © 2026 Zerohead One Inc.
