@@ -85,7 +85,8 @@ This Agreement is governed by Ontario law and the applicable federal laws of Can
 
 **Zerohead One Inc.**  
 Ontario, Canada  
-https://zerohead-one.com/
+Email: [zeroheadone@gmail.com](mailto:zeroheadone@gmail.com)  
+Website: https://zerohead-one.com/
 
 ---
 
