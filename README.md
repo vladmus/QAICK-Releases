@@ -24,6 +24,10 @@ Download the public Beta 1 installer for your operating system from [GitHub Rele
 
 Check downloaded files against the SHA-256 digests in [SHA256SUMS](SHA256SUMS).
 
+## Software license
+
+QAICK Desktop Beta 1 is **proprietary freeware**. Personal, educational and commercial use is permitted under the [QAICK Desktop End-User License Agreement](EULA.md). The Software is licensed, not sold; ownership of its proprietary source code is not transferred to users.
+
 ## Security and privacy
 
 Read our [Beta 1 Security & Privacy Information](SECURITY-AND-PRIVACY.md) for confirmed local storage behavior, full-fidelity credential/evidence handling, third-party spellchecking network activity, and verification limitations.
