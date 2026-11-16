@@ -2,13 +2,13 @@
 
 Official distribution repository for **QAICK Desktop**, a freeware API automation application by Zerohead One Inc.
 
-**First public release: Beta** — the candidate is labeled `v1.0.0-rc.1` and must be published as a **GitHub pre-release**, not as a stable v1.0.0 release.
+**First public release: Beta 1** — `v1.0.0-rc.1` was published as a **GitHub pre-release** on November 12, 2026, not as a stable v1.0.0 release. This repository describes the **frozen public Beta 1**, not newer development-source capabilities.
 
 ## What QAICK does
 
 QAICK Studio creates and edits HTTP API Actions, Streams and Operations. QAICK Runner executes API workflows and makes execution evidence available for inspection and export.
 
-QAICK is currently focused on **API automation and testing**, not browser UI automation.
+This Beta provides **API workflow automation and execution evidence**, not creation/evaluation of user tests or test pass/fail verdicts; Analyzer remains a future component. It does not provide browser UI automation.
 
 ## Downloads
 
