@@ -26,7 +26,9 @@ Check downloaded files against the SHA-256 digests in [SHA256SUMS](SHA256SUMS).
 
 ## Software license
 
-QAICK Desktop Beta 1 is **proprietary freeware**. Personal, educational and commercial use is permitted under the [QAICK Desktop End-User License Agreement](EULA.md). The Software is licensed, not sold; ownership of its proprietary source code is not transferred to users.
+QAICK Desktop Beta 1 is **proprietary freeware**. Personal, educational and commercial use is permitted under the [QAICK Desktop Beta 1 End-User License Agreement](EULA-Beta-1.md). The Software is licensed, not sold; ownership of its proprietary source code is not transferred to users.
+
+The [current QAICK Desktop 1.0.1 End-User License Agreement](EULA.md) is maintained separately; it does not retroactively replace the Beta 1 agreement.
 
 ## Security and privacy
 
