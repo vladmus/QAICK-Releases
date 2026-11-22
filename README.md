@@ -2,27 +2,34 @@
 
 Official distribution repository for **QAICK Desktop**, a freeware API automation application by Zerohead One Inc.
 
-**First public release: Beta 1** — `v1.0.0-rc.1` was published as a **GitHub pre-release** on November 12, 2026, not as a stable v1.0.0 release. This repository describes the **frozen public Beta 1**, not newer development-source capabilities.
+**QAICK Desktop 1.0.1** brings Studio, Runner and Mock Server together in one application. The verified installer checksums are preserved in [installers/1.0.1](installers/1.0.1/).
+
+The 1.0.1 release metadata is committed locally; public installer distribution is pending. The earlier [Beta 1 release](https://github.com/vladmus/QAICK-Releases/releases/tag/v1.0.0-rc.1) remains available separately.
 
 ## What QAICK does
 
-QAICK Studio creates and edits HTTP API Actions, Streams and Operations. QAICK Runner executes API workflows and makes execution evidence available for inspection and export.
+- **Studio:** Create and edit API Actions, Operations and Streams, with explicit input/output bindings.
+- **Runner:** Execute workflows, inspect recorded request/response evidence and review History.
+- **Mock Server:** Configure local HTTP mock rules and responses, including optional Studio/Runner routing.
 
-This Beta provides **API workflow automation and execution evidence**, not creation/evaluation of user tests or test pass/fail verdicts; Analyzer remains a future component. It does not provide browser UI automation.
+Use the components in the main window or detach Runner and Mock Server into separate windows. Studio remains the main window. Load Example Project opens a prepared Project without automatically executing it.
+
+QAICK provides **API workflow automation and execution evidence**. Execution outcomes are not test pass/fail verdicts; Analyzer remains a future component. QAICK does not provide browser UI automation.
 
 ## Downloads
 
-Download the public Beta 1 installer for your operating system from [GitHub Releases](https://github.com/vladmus/QAICK-Releases/releases/tag/v1.0.0-rc.1).
+The verified Desktop **1.0.1** installer filenames are listed below. Installer binaries are kept outside Git history for distribution through [GitHub Releases](https://github.com/vladmus/QAICK-Releases/releases). Public 1.0.1 download assets have not yet been published.
 
 | Operating system | Installer |
 | --- | --- |
-| macOS 13+ on Apple Silicon | `QAICK-Desktop-1.0.0-rc.1-macOS-arm64.dmg` |
-| Windows x64 | `QAICK-Desktop-1.0.0-rc.1-Windows-x64-Setup.exe` |
-| Linux x64 | `QAICK-Desktop-1.0.0-rc.1-Linux-x64.AppImage` or `qaick-desktop_1.0.0-rc.1_amd64.deb` |
+| macOS 13+ on Apple Silicon | `QAICK-Desktop-1.0.1-macOS-arm64.dmg` |
+| Windows x64 | `QAICK-Desktop-1.0.1-Windows-x64-Setup.exe` |
+| Linux x64 — AppImage | `QAICK-Desktop-1.0.1-Linux-x64.AppImage` |
+| Linux x64 — Debian package | `qaick-desktop_1.0.1_amd64.deb` |
 
-**Beta limitations:** The macOS build is not Developer ID notarized and the Windows build is unsigned. macOS Gatekeeper and Windows SmartScreen may require a user-initiated exception. Do not disable operating-system security protections globally. Linux AppImage extract-and-run has been verified; FUSE/double-click launch has not.
+Check the installer against [1.0.1 SHA256SUMS](installers/1.0.1/SHA256SUMS) before installation. Save your work and close QAICK before replacing an installation.
 
-Check downloaded files against the SHA-256 digests in [SHA256SUMS](SHA256SUMS).
+The macOS build is not Developer ID notarized and the Windows build is unsigned. macOS Gatekeeper and Windows SmartScreen may require a user-initiated exception. Do not disable operating-system security protections globally. Linux AppImage extract-and-run has been verified; FUSE/double-click launch has not.
 
 ## Software license
 
@@ -34,11 +41,15 @@ QAICK Desktop is **proprietary freeware**. Personal, educational and commercial 
 
 ## Security and privacy
 
-Read our [Beta 1 Security & Privacy Information](SECURITY-AND-PRIVACY.md) for confirmed local storage behavior, full-fidelity credential/evidence handling, third-party spellchecking network activity, and verification limitations.
+The [Security & Privacy Information](SECURITY-AND-PRIVACY.md) documents the earlier Beta 1 investigation and its verification limits. Its version-specific findings must not be treated as a security assessment of Desktop 1.0.1.
+
+Recording and execution evidence can contain credentials and sensitive request/response values. Review collections, Projects and exported results before sharing them.
 
 ## Release status
 
-Source: QAICK Desktop 1.0.0-rc.1 frozen build manifest and documented platform checks. The repository contains release metadata, **not** QAICK's private product source.
+The four 1.0.1 installers are the existing verified builds, preserved locally without rebuilding or changing their version. Their checksums are tracked in Git; the installer binaries are not. Diagnostic Script packages and traces are excluded. Local preservation does not constitute public publication.
+
+This repository tracks release documents and checksums, **not** installer binaries or QAICK's private product source. Earlier Beta 1 documents and checksums remain available as historical records.
 
 ## Feedback
 
