@@ -3,7 +3,7 @@
 **Agreement version:** 1.1  
 **Updated:** November 21, 2026  
 **Applies to:** QAICK Desktop `1.0.1`, including QAICK Studio, QAICK Runner and QAICK Mock Server  
-**Licensor and distributor:** Zerohead One Inc., Ontario, Canada
+**Licensor and distributor:** Zerohead One Inc.
 
 Please read these terms before installing or using QAICK Desktop (the **Software**). By installing or using the Software after being given an opportunity to review these terms, you agree to this End-User License Agreement (**Agreement**), to the extent permitted by applicable law. If you do not agree, do not install or use the Software.
 
@@ -84,7 +84,6 @@ This Agreement is governed by Ontario law and the applicable federal laws of Can
 ## 12. Contact
 
 **Zerohead One Inc.**  
-Ontario, Canada  
 Email: [zeroheadone@gmail.com](mailto:zeroheadone@gmail.com)  
 Website: https://zerohead-one.com/
 
