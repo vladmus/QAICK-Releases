@@ -1,8 +1,8 @@
 # QAICK Desktop — End-User License Agreement
 
-**Version:** 1.0  
-**Published:** November 13, 2026  
-**Applies to:** QAICK Desktop Beta 1 (`1.0.0-rc.1`), including QAICK Studio and QAICK Runner  
+**Agreement version:** 1.1  
+**Updated:** November 21, 2026  
+**Applies to:** QAICK Desktop `1.0.1`, including QAICK Studio, QAICK Runner and QAICK Mock Server  
 **Licensor and distributor:** Zerohead One Inc., Ontario, Canada
 
 Please read these terms before installing or using QAICK Desktop (the **Software**). By installing or using the Software after being given an opportunity to review these terms, you agree to this End-User License Agreement (**Agreement**), to the extent permitted by applicable law. If you do not agree, do not install or use the Software.
@@ -47,15 +47,15 @@ QAICK Desktop does not collect QAICK application usage analytics or telemetry an
 
 Projects, execution History, clipboard copies and exported files can contain readable credentials and sensitive request or response data. You are responsible for protecting and reviewing those materials.
 
-The underlying Electron/Chromium platform may make supporting network connections separately from the API workflows you configure. For details, see the [QAICK Desktop Security & Privacy Information](SECURITY-AND-PRIVACY.md).
+The underlying Electron/Chromium platform may make supporting network connections separately from the API workflows you configure.
 
 ## 6. Third-party components
 
 The Software includes third-party components governed by their own license terms. Those terms apply to the relevant components. Nothing in this Agreement overrides rights or notices required by applicable third-party licenses.
 
-## 7. Beta software, updates and support
+## 7. Software updates and support
 
-QAICK Desktop Beta 1 is prerelease software. You should keep backups of important Projects and use care when executing workflows against external services.
+You should keep backups of important Projects and use care when executing workflows against external services.
 
 Zerohead One Inc. may release updates or later versions under different terms, including different pricing. Any such later terms do not automatically change the license for this version. No particular update schedule or continuing support is promised.
 
