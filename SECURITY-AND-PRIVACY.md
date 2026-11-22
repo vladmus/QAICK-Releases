@@ -1,67 +1,74 @@
 # QAICK Desktop — Security & Privacy
 
-**Beta 1 · Version `1.0.0-rc.1` · November 13, 2026**
+**Version `1.0.1` · November 22, 2026**
 
-QAICK Desktop is a local application for building, running and reviewing API workflows. Your Projects, API requests and execution results remain under your control.
+QAICK Desktop combines Studio, Runner and Mock Server in one local application for authoring API workflows, executing them and inspecting recorded evidence.
 
-## Data collection and privacy
+## Data handling and intentional requests
 
-**QAICK Desktop does not collect usage analytics or application telemetry.**
+QAICK's privacy requirement is that external data exchange occurs through explicit user intention. User-initiated API requests and their responses are part of normal application operation.
 
-QAICK does not automatically upload your Projects, credentials or execution History to Zerohead One. It does not synchronize these records to a Zerohead One cloud service.
+The existing assessment found no transmission of Projects, credentials or execution History to Zerohead One, and no QAICK usage analytics or telemetry transmission in the exercised workflows. QAICK does not synchronize these records to a Zerohead One cloud service.
 
-Your API workflows execute from your computer. **HTTP and HTTPS requests are sent directly to the destinations resolved from your configured Actions and bindings**, not through Zerohead One servers. As with any API client, those requests can include the headers, credentials, bodies and other data you choose to send.
+Requests execute from your computer using the destinations, headers, credentials and values configured in your Actions and bindings. Optional Mock routing sends eligible requests to the integrated local Mock Server instead. Recorded execution evidence distinguishes the original API URL, effective destination and response source. The exercised failed Mock-routing case did not silently fall back to the original API.
 
-## Local data storage
+## Local storage and recorded evidence
 
-- **Projects:** Stored as JSON files at locations you select.
-- **Execution History:** Stored in QAICK's local application profile.
-- **Results:** Available for inspection, copying and export to local files.
+- **Projects and Mock collections:** Saved to local files selected by the user.
+- **Execution History:** Retained in the local application profile.
+- **Results:** Available for inspection, copying and export.
+- **Recorded HTTP drafts:** Created by explicitly enabled Studio recording; inactive until approved and saved.
 
-If you save a Project in a cloud-synchronized folder or network drive, the storage and synchronization behavior of that location applies.
+Projects, collections, History and exports can retain authorization headers, cookies, API keys and request/response content. QAICK preserves these original values as execution evidence; it does not silently redact them. Review files and copied evidence before sharing. Operating-system file permissions and clipboard-history settings apply. Files placed in a cloud-synchronized folder or network drive follow that location's storage behavior.
 
-## Credentials and execution evidence
+## Automatic dictionary download — corrected
 
-QAICK retains detailed API request and response evidence to support investigation and repeatable workflows.
+Sherlock's initial installed 1.0.1 assessment confirmed an automatic spelling-dictionary download from Google's redirector/CDN. Under the owner's requirement against unsolicited external data exchange, that was a confirmed failure. No Project or credential disclosure was demonstrated by that download.
 
-**Projects, History, copied results and exported files may contain readable API credentials and sensitive response data**, including authorization headers, API keys and cookies. This is intentional full-fidelity evidence retention.
+Spellcheck was subsequently disabled before renderer creation, with its dictionary-language list cleared. No dictionaries were bundled.
 
-QAICK Desktop Beta 1 does not include an application-managed encrypted credential vault. Protect Project and result files using your operating system's access controls. Review any evidence before sharing it, and remember that copied data may remain in your clipboard or clipboard history.
+Sherlock's independent installed Linux retest confirmed:
 
-## Other network activity
+- No dictionary download, external Chromium URL request or dictionary file during the observed fresh-start and restart sessions.
+- Studio, Runner and Mock Server opened normally.
+- No fixture request occurred before explicit execution.
+- A user-initiated Script and HTTP workflow completed successfully and retained its configured synthetic authorization header and original response values.
+- History and exported execution evidence survived restart unchanged.
 
-QAICK is built on Electron/Chromium. Alongside your API requests, Chromium may make its own supporting network connections—for example, downloading spellchecking dictionaries or performing proxy and network-connectivity checks. These are platform functions, not QAICK usage analytics or uploads of your Projects to Zerohead One.
+The original failed assessment remains preserved separately. Its result is not rewritten as a pass.
 
-## Privacy verification — Linux and Windows
+## IPv6 reachability observation — investigated
 
-On **November 13, 2026**, Zerohead One performed hands-on privacy and network verification of the **installed QAICK Desktop Beta 1 production application** on **Linux Mint 22.3** and **Windows 10 x64**. The checks combined production-code inspection, process-aware network observation and controlled API requests using synthetic data.
+The corrected-build retest recorded a UDP connection attempt to `[2001:4860:4860::8888]:443` that failed locally with `ENETUNREACH`. No successful external connection or subsequent external send was observed.
 
-Both platforms were exercised through Project saving, HTTP Send, multi-Action Stream execution with output bindings, integrated Runner execution, History, Copy and JSON export. Windows History persistence was also confirmed after an application restart.
+The matching Chromium source and recorded NetLog identify this as an IPv6 route-availability check triggered while connecting to the local Mock Server. On the inspected Linux path, the probe associates a UDP socket with a destination and reads its local address; it does not send or receive an application datagram. Port 443 is the source-defined default, not evidence of an HTTPS, QUIC or DNS exchange.
 
-**Results of the Linux and Windows verification:**
+Archi reviewed the source investigation and concluded that no violation of the owner's external-data-exchange requirement was confirmed, and no correction was recommended. This conclusion combines recorded Linux observations with source inspection; an IPv6-connected runtime experiment was not performed.
 
-- **Local storage confirmed:** Projects and Runner History were saved locally, and exported results retained their expected contents.
-- **Direct API communication confirmed:** Controlled HTTP requests reached their configured test-server destinations, with data passed correctly between dependent Actions.
-- **No Zerohead One data uploads observed:** Neither test recorded transmission of Projects or execution results to Zerohead One.
-- **No QAICK telemetry observed:** Neither test recorded QAICK usage analytics or telemetry transmission.
-- **Full-fidelity evidence confirmed:** Saved Projects and execution evidence retained configured synthetic credentials, consistent with the behavior described above.
+## Verification basis and result
 
-The network checks also distinguished supporting Chromium activity from API execution: Linux downloaded a spelling dictionary, while Windows recorded proxy-discovery and IPv6 reachability activity.
+**Independent investigator:** Sherlock. Initial assessment: November 21–22, 2026. Corrected installed-build retest: November 22, 2026. **Source investigation:** Codi, reviewed by Archi.
 
-These are **product verification results on the tested Linux and Windows configurations**, not a claim of independent security certification.
+The retest used the installed Linux Desktop 1.0.1, isolated application profiles and synthetic data. It covered fresh startup, idle periods, all three component views, one intentional Script/HTTP execution, restart, History and exported-result equality. Chromium NetLog and process-tree network syscall records supplied the network observations. All 1,471 installed package files matched the tested DEB and remained unchanged. Existing evidence evaluation recorded 21 passing comparisons; negative controls rejected an added dictionary request and altered response data.
 
-## Desktop and web demos
+The independently retested DEB SHA-256 was `3590284a94588f69f72b66e323bc856c5f61144b2e267edc4f43f91c50322f2c`. Its manifest identified Studio 0.11.49, Runner 0.32.43, Mock Server 0.8.5 and Electron 44.10.2. This identifies the tested package precisely because later installers retain version 1.0.1.
 
-This page describes **QAICK Desktop**. The hosted Studio and Runner web demos operate in a browser, where storage, networking and redirect behavior follow browser rules.
+**Result:** The unsolicited dictionary-download correction passed the bounded installed Linux retest. No unintended external data transfer was demonstrated in the observed corrected-build sessions. Original credentials, zero, false, empty strings, null and nested response values were preserved.
 
-## Official downloads
+This report summarizes existing evidence; no testing was repeated for this update. The security retest applies to the identified Linux package and workflows. Later installer rebuilds and their checksums identify the distributed files; they are not additional independent security tests. No 1.0.1 Windows/macOS security retest is claimed. The work was a focused assessment, not a full penetration test or security certification; Chromium NetLog alone does not cover all native HTTP traffic.
 
-Get the application from the [official QAICK Desktop Beta 1 release](https://github.com/vladmus/QAICK-Releases/releases/tag/v1.0.0-rc.1). [SHA-256 checksums](SHA256SUMS) are provided to verify downloads.
+## Desktop and browser demos
 
-Beta 1 is distributed without a signed Windows installer or Apple notarization. Your operating system may show a publisher or security warning; review the download source and checksum before proceeding.
+This report covers QAICK Desktop. Hosted browser demos use browser storage and networking rules. The hosted Mock Server demo is an authoring interface, not a publicly callable mock endpoint service.
 
-## Questions
+## Downloads and verification
 
-For product questions or security and privacy concerns, contact **Zerohead One Inc.** at [zeroheadone@gmail.com](mailto:zeroheadone@gmail.com). Product information is available at [zerohead-one.com](https://zerohead-one.com/). Please avoid including credentials, private Projects or unreviewed execution logs in initial reports.
+Download [QAICK Desktop 1.0.1](https://github.com/vladmus/QAICK-Releases/releases/tag/v1.0.1) and verify the installer against the accompanying [SHA256SUMS](https://github.com/vladmus/QAICK-Releases/releases/download/v1.0.1/SHA256SUMS). Installer checksums establish file identity, not a security verdict.
+
+Windows installers are unsigned and macOS builds are ad-hoc signed, not notarized. Your operating system may display a publisher or security warning. Verify the download source and checksum; do not disable operating-system protections globally.
+
+## Contact
+
+For product or security questions, contact **Zerohead One Inc.** at [zeroheadone@gmail.com](mailto:zeroheadone@gmail.com). Product information is available at [zerohead-one.com](https://zerohead-one.com/). Do not include credentials, private Projects or unreviewed execution logs in an initial report.
 
 © 2026 Zerohead One Inc.
