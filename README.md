@@ -41,7 +41,7 @@ QAICK Desktop is **proprietary freeware**. Personal, educational and commercial 
 
 ## Security and privacy
 
-The [Security & Privacy Information](SECURITY-AND-PRIVACY.md) documents the earlier Beta 1 investigation and its verification limits. Its version-specific findings must not be treated as a security assessment of Desktop 1.0.1.
+Read the [Desktop 1.0.1 Security & Privacy report](SECURITY-AND-PRIVACY.md) for the existing assessment, independently verified dictionary-download correction, IPv6 investigation and exact verification scope.
 
 Recording and execution evidence can contain credentials and sensitive request/response values. Review collections, Projects and exported results before sharing them.
 
