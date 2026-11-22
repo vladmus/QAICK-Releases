@@ -1,0 +1,5 @@
+# Installer binaries are distributed as GitHub Release assets, not Git blobs.
+installers/**/*.AppImage
+installers/**/*.deb
+installers/**/*.exe
+installers/**/*.dmg
