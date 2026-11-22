@@ -28,6 +28,10 @@ Check downloaded files against the SHA-256 digests in [SHA256SUMS](SHA256SUMS).
 
 QAICK Desktop is **proprietary freeware**. Personal, educational and commercial use is permitted under the [QAICK Desktop End-User License Agreement](EULA.md). The Software is licensed, not sold; ownership of its proprietary source code is not transferred to users.
 
+## Credits
+
+[QAICK Desktop Credits](CREDITS.md).
+
 ## Security and privacy
 
 Read our [Beta 1 Security & Privacy Information](SECURITY-AND-PRIVACY.md) for confirmed local storage behavior, full-fidelity credential/evidence handling, third-party spellchecking network activity, and verification limitations.
