@@ -4,7 +4,7 @@ Official distribution repository for **QAICK Desktop**, a freeware API automatio
 
 **QAICK Desktop 1.0.1** brings Studio, Runner and Mock Server together in one application. The verified installer checksums are preserved in [installers/1.0.1](installers/1.0.1/).
 
-The 1.0.1 release metadata is committed locally; public installer distribution is pending. The earlier [Beta 1 release](https://github.com/vladmus/QAICK-Releases/releases/tag/v1.0.0-rc.1) remains available separately.
+**QAICK Desktop 1.0.1 was publicly published on November 22, 2026.** Download the official [v1.0.1 GitHub release](https://github.com/vladmus/QAICK-Releases/releases/tag/v1.0.1). The earlier [Beta 1 prerelease](https://github.com/vladmus/QAICK-Releases/releases/tag/v1.0.0-rc.1) remains available separately.
 
 ## What QAICK does
 
@@ -18,7 +18,7 @@ QAICK provides **API workflow automation and execution evidence**. Execution out
 
 ## Downloads
 
-The verified Desktop **1.0.1** installer filenames are listed below. Installer binaries are kept outside Git history for distribution through [GitHub Releases](https://github.com/vladmus/QAICK-Releases/releases). Public 1.0.1 download assets have not yet been published.
+The verified Desktop **1.0.1** installer filenames are listed below. Installer binaries are kept outside Git history for distribution through [GitHub Releases](https://github.com/vladmus/QAICK-Releases/releases). The official 1.0.1 download assets are publicly available in the [v1.0.1 release](https://github.com/vladmus/QAICK-Releases/releases/tag/v1.0.1).
 
 | Operating system | Installer |
 | --- | --- |
@@ -47,7 +47,7 @@ Recording and execution evidence can contain credentials and sensitive request/r
 
 ## Release status
 
-The four 1.0.1 installers are the existing verified builds, preserved locally without rebuilding or changing their version. Their checksums are tracked in Git; the installer binaries are not. Diagnostic Script packages and traces are excluded. Local preservation does not constitute public publication.
+The four 1.0.1 installers are the existing verified builds, preserved locally without rebuilding or changing their version. Their checksums are tracked in Git; the installer binaries are not. Diagnostic Script packages and traces are excluded. The same verified installer builds have now been publicly published in GitHub Releases; their local preservation alone did not constitute publication.
 
 This repository tracks release documents and checksums, **not** installer binaries or QAICK's private product source. Earlier Beta 1 documents and checksums remain available as historical records.
 
