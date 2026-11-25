@@ -1,22 +1,22 @@
 [
   {
     "filename": "QAICK-Desktop-1.0.4-Linux-x64.AppImage",
-    "bytes": 132040425,
-    "sha256": "49152fddfe2044e02e61dd3e3084626cf3cbc3ab38584e98b54acd1c9704fa96"
+    "bytes": 132040496,
+    "sha256": "43ed8bb3a9ba6b1d74b27b0a7e5f493ed940fc5fc0cb1f4ba70d6b4bb15e539b"
   },
   {
     "filename": "qaick-desktop_1.0.4_amd64.deb",
-    "bytes": 104167368,
-    "sha256": "996d9d31f305f96a993346f6f13e4fa9ca8fa7cbb68576c6de72c9cfa6981e56"
+    "bytes": 104167404,
+    "sha256": "5d149c0cf26d5dfb3438290e3cb07497aa7abb18ffc88a39db0dcda9792b1eeb"
   },
   {
     "filename": "QAICK-Desktop-1.0.4-Windows-x64-Setup.exe",
-    "bytes": 118942327,
-    "sha256": "1e6a3aec068d04f965dc5f66169728baa38f33b6099916c9f50921726d41076f"
+    "bytes": 118958367,
+    "sha256": "220bfefc038fa42e297eb159b9c7c53be6a671d2ba309d22bd70d2bfac6f1fcb"
   },
   {
     "filename": "QAICK-Desktop-1.0.4-macOS-arm64.dmg",
-    "bytes": 136507012,
-    "sha256": "fe42261a70576fd1c72e6529f3ae2aab2328ff2714b0215f7fea4a89f0a7702a"
+    "bytes": 136506684,
+    "sha256": "79662fe253ca1200481cd3a69d754303f77e167eee9a84c88e9664f16cde8ea3"
   }
 ]
