@@ -3,3 +3,4 @@ installers/**/*.AppImage
 installers/**/*.deb
 installers/**/*.exe
 installers/**/*.dmg
+node_modules/
