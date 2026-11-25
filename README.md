@@ -60,3 +60,9 @@ This repository tracks release documents and checksums, **not** installer binari
 Please use the product website at https://zerohead-one.com/ for contact and product information. Do not post credentials, authorization headers, cookies, private API responses, or proprietary Project data in public issue reports.
 
 © 2026 Zerohead One Inc.
+
+## Local 1.0.4 preparation and protection gate
+
+Desktop 1.0.4 is a local candidate only; the public release above remains 1.0.3. See [candidate notes](installers/1.0.4/RELEASE-NOTES.md) and [candidate checksums](installers/1.0.4/SHA256SUMS). No 1.0.4 download is published.
+
+The existing upload operation is gated through `npm run publish:desktop -- VERSION ARTIFACT_DIRECTORY`. It checks the committed artifact manifest and SHA256SUMS, current protection policy/tool identity and exact-hash final-installer verification before invoking an upload. `--verify-only` performs the same checks without uploading. Missing, failed, obsolete or changed evidence blocks dispatch. OWNER publication authorization is still required. Local private build dependencies are not release assets.
