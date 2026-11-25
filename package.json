@@ -1,0 +1,1 @@
+{"name":"qaick-release-tools","version":"0.1.0","private":true,"type":"module","scripts":{"publish:desktop":"node scripts/publish-desktop.mjs"},"devDependencies":{"@qaick/release-protection":"file:local-packages/qaick-release-protection-0.1.0.tgz"}}
