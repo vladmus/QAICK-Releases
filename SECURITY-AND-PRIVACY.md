@@ -1,6 +1,6 @@
 # QAICK Desktop — Security & Privacy
 
-**QAICK Desktop `1.0.4` · Report revision 2 · November 25, 2026**
+**QAICK Desktop `1.0.4` · Report revision 3 · November 25, 2026**
 
 QAICK Desktop combines Studio, Runner and Mock Server in one local application for authoring API workflows, executing them and inspecting recorded evidence.
 
@@ -52,10 +52,10 @@ Studio authoring, Runner execution/evidence and Mock Server operate locally. Pac
 | Evidence scope | Existing result and boundary |
 | --- | --- |
 | Final single-instance-corrected Linux 1.0.4 AppImage payload | SHERLOCK current privacy, intentional Script/HTTP evidence, loopback binding, restart and History preservation: bounded PASS. Normal extracted payload; no system installation/upgrade or FUSE-launch claim. |
-| Final four installers | SHERLOCK independently matched all four checksums and inspected actual package identity. CODI verified actual final protected payloads and hash-bound receipts, with 9/9 final artifact checks passing. |
-| Earlier protected 1.0.4 candidate | SHERLOCK independently verified Script timeout, cancellation, sandbox observations, History, offline documents and four-platform artifact protection. Its original installer hashes differ from the final single-instance rebuild; those original observations are retained at that scope. |
-| Windows x64 | Final payload identity and supported protection checks verified. Native network privacy and final single-instance/active-execution behavior are not independently verified by these reports. Windows migration developer models are distinct from native upgrade/Norton acceptance. |
-| macOS Apple Silicon | Final payload identity and supported protection checks verified. A separate operator reported earlier 1.0.4 core Script/Mock/History success; it is attributed operator evidence, not SHERLOCK native execution or an exact-final-installer security retest. Native final privacy and configurable-timeout/upgrade coverage remain unverified here. |
+| Final four installers | SHERLOCK independently matched all four checksums and inspected actual package identity. CODI separately verified the published downloads against the approved installer identities. |
+| Earlier 1.0.4 candidate | SHERLOCK independently verified Script timeout, cancellation, sandbox observations, History and offline documents. Its original installer hashes differ from the final single-instance rebuild; those original observations are retained at that scope. |
+| Windows x64 | Final package identity verified. Native network privacy and final single-instance/active-execution behavior are not independently verified by these reports. Windows migration developer models are distinct from native upgrade/Norton acceptance. |
+| macOS Apple Silicon | Final package identity verified. A separate operator reported earlier 1.0.4 core Script/Mock/History success; it is attributed operator evidence, not SHERLOCK native execution or an exact-final-installer security retest. Native final privacy and configurable-timeout/upgrade coverage remain unverified here. |
 
 Owner Projects, History, settings and protected data were not modified by these assessments. Synthetic profiles and files supplied the evidence. Preservation observations apply to those controlled workflows, not an unperformed audit of every owner file.
 
@@ -63,7 +63,7 @@ Owner Projects, History, settings and protected data were not modified by these 
 
 Scripts retain the existing sandbox and manual cancellation. The Script-specific default is now **60,000 ms**, configurable per Script Action using the existing timeout configuration pattern. Older Projects with no explicit Script timeout inherit that default. Saved occurrence configurations retain their own values; changing a reusable definition does not silently rewrite an already configured occurrence. The overall Run timeout remains separate and can end execution sooner.
 
-CODI's developer checks covered Script preview/runtime propagation, validation, Save/Cancel, reload, cancellation and the unchanged execution boundaries. The earlier protected 1.0.4 SHERLOCK packaged-Linux observations independently demonstrated:
+CODI's developer checks covered Script preview/runtime propagation, validation, Save/Cancel, reload, cancellation and the unchanged execution boundaries. The earlier 1.0.4 SHERLOCK packaged-Linux observations independently demonstrated:
 
 - A legacy Script without an explicit timeout completed after more than one second. A deliberately longer Script reached the inherited limit and returned the actual `SCRIPT_TIMEOUT` error after approximately 60 seconds.
 - An explicit 25 ms timeout failed truthfully; invalid zero was rejected without saving the draft. Save, Cancel, reopen and restart preserved the intended configured value.
@@ -72,22 +72,6 @@ CODI's developer checks covered Script preview/runtime propagation, validation, 
 - History and portable Run Results preserved original recorded outcomes and typed values across restart; opening a saved result did not execute it again.
 
 That campaign recorded 58/58 evidence comparisons passing. The final rebuild preserved the timeout implementation and component identities; the earlier native timeout checks were not rerun or relabeled as final-installer native tests. Existing developer baseline failures outside this correction remain recorded in the original developer report and are not represented as resolved by this security report.
-
-## Production intellectual property protection
-
-The approved production build bundles, minifies and selectively obfuscates deployable JavaScript. Original TypeScript/TSX/JSX, source maps, tests, internal/development documents, development dependency trees and redundant loose application copies are excluded from the verified distribution payload. Approved examples, licenses and notices remain intentionally bundled. User-authored Script content and execution semantics are preserved.
-
-Desktop loads its packaged application from ASAR, with `OnlyLoadAppFromAsar` enabled. Windows and macOS additionally use supported embedded ASAR integrity metadata and enforcement, checked against the actual packaged executable/bundle. **Linux does not support Electron's embedded ASAR integrity enforcement**; no equivalent Linux guarantee is asserted. JavaScript remains recoverable through reverse engineering: bundling/obfuscation and integrity checks increase effort and constrain supported loading, rather than making shipped code secret or impossible to modify. V8 bytecode or a native-code migration was not introduced.
-
-SHERLOCK's earlier 1.0.4 independent inspection found 90 ASAR runtime files, including 13 transformed JavaScript files, and no excluded source/development files or loose application duplicate across all four actual installers. The final rebuild's CODI receipts verify actual extracted payloads, transformations, ASAR, applicable integrity/fuses and obsolete-loose-file checks, bound to each final installer SHA-256 below. SHERLOCK's current retest separately inspected final package identities and matching shared main-process code; it did not repeat the entire earlier IP campaign.
-
-### Mandatory automated release enforcement
-
-Production protection is an automatic release condition for Desktop and Web, including future QAICK components. Existing build/publication commands verify actual distribution artifacts, bind successful evidence to exact artifact hashes and reject missing, failed, stale or mismatched protection evidence before publication dispatch. This condition does not authorize publication; OWNER approval remains separate.
-
-Existing independent gate checks rejected missing receipts, failed transformation verification, stale verifier identity and altered installer bytes before dispatch. The valid control dispatched only to a no-op observer; nothing was published by that test. Final CODI verification-only checks accepted the four exact final installers, and the existing publication record confirms their subsequent authorized upload through the normal protection gate. No gate was rerun for this report.
-
-The Windows installer stages the verified replacement before switching the active application directory, retains unrecognized files outside the active payload and retires only known obsolete program files after commit. This prevents old readable application copies from remaining active after a successful protected upgrade while preserving user data. Developer recovery models and installer compilation/inspection support this mechanism; they do not establish unobserved native antivirus/locked-file recovery outcomes. No new installation or upgrade acceptance is implied here.
 
 ## Historical automatic dictionary download — corrected
 
@@ -140,8 +124,6 @@ These are the final single-instance-corrected installers, independently matched 
 | `QAICK-Desktop-1.0.4-Windows-x64-Setup.exe` | 118958367 | `220bfefc038fa42e297eb159b9c7c53be6a671d2ba309d22bd70d2bfac6f1fcb` |
 | `QAICK-Desktop-1.0.4-macOS-arm64.dmg` | 136506684 | `79662fe253ca1200481cd3a69d754303f77e167eee9a84c88e9664f16cde8ea3` |
 
-Final Linux AppImage/DEB and Windows ASAR SHA-256: `fd08272f00bfa9fab7656e7aabd5284efc61775c9caaf2d7264d9469134ac7d7`. Final macOS ASAR SHA-256: `be86e27c5249662a638adaa88ab28f69eb33fc102454fae3eb4cea611f28fb1d`. Protection receipts retain the corresponding per-file inventory, executable/bundle integrity evidence and verifier identity privately; no proprietary build tools or source archives are distributed with this report.
-
 ## Evidence register and revision history
 
 The following existing records remain preserved with their raw observations and manifests. Private evidence identifiers below support traceability; they are not claims that the raw records are publicly downloadable.
@@ -149,15 +131,14 @@ The following existing records remain preserved with their raw observations and 
 | Existing record | Author / role | Scope used in this revision |
 | --- | --- | --- |
 | `privacy-1.0.4-current-2026-11-25/REPORT.txt` | SHERLOCK, independent QA | Final installer identities; current Linux network/privacy, loopback, spellcheck, explicit execution, restart and History; 23/23 comparisons. |
-| `desktop-1.0.4-independent-2026-11-25/REPORT.txt` | SHERLOCK, independent QA | Earlier protected candidate's actual artifact inspection, negative publication controls, native Linux timeout/cancellation/sandbox/evidence; 58/58 comparisons; attributed macOS operator evidence. Original hashes retained there. |
-| `qaick-production-protection-2026-11-25/REPORT.txt` | CODI, developer verification | Timeout integration, protected production build, existing developer checks and baseline failures. |
+| `desktop-1.0.4-independent-2026-11-25/REPORT.txt` | SHERLOCK, independent QA | Earlier candidate's native Linux timeout, cancellation, sandbox and evidence observations; attributed macOS operator evidence. Original hashes and complete evaluation remain in that record. |
 | `qaick-single-instance-2026-11-25/REPORT.txt` | CODI, developer/native Linux observations | Single-instance source correction, draft/window preservation and explicitly incomplete active-execution scope. |
 | `qaick-windows-104-migration-correction-2026-11-25/REPORT.txt` | CODI, developer verification | Staged Windows migration, retained unknown files and modeled failure recovery; native boundary retained. |
-| `qaick-desktop-104-final-2026-11-25/REPORT.txt` and final `.protection.json` receipts | CODI, build/artifact verification | Final freeze, all four exact protected artifacts, 9/9 final checks, verification-only publication gate and SMB retrieval. |
+| `qaick-desktop-104-final-2026-11-25/REPORT.txt` | CODI, build/artifact verification | Final source freeze, installer identities and retrieval verification. |
 | `qaick-desktop-104-publication-2026-11-25/REPORT.txt` | CODI, publication verification | Authorized release, exact public download/checksum matches; no rebuild. |
 | `security-installed-1.0.1-2026-11-21/REPORT.txt`; `no-spellcheck-independent-2026-11-22/REPORT.txt` | SHERLOCK, historical independent QA | Original dictionary failure and bounded corrected-build retest; retained without rewriting either outcome. |
 
-Revision 1 described Desktop 1.0.1 evidence on November 22, 2026; a later download-link update referenced 1.0.4 while retaining that historical assessment. **Revision 2, November 25, 2026**, incorporates the current final 1.0.4 evidence and the approved protection/timeout mechanisms. The prior report revision and original evidence remain in private development history. This is a documentation consolidation, not a new security assessment, certification or platform acceptance.
+Revision 1 described Desktop 1.0.1 evidence on November 22, 2026; a later download-link update referenced 1.0.4 while retaining that historical assessment. Revision 2, November 25, 2026, consolidated the current final 1.0.4 evidence. **Revision 3, November 25, 2026**, focuses the public report on user data, privacy and verified application security. Internal evidence is unchanged. The prior report revision and original evidence remain in private development history. This is a documentation consolidation, not a new security assessment, certification or platform acceptance.
 
 ## Downloads and verification
 
