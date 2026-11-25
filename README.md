@@ -2,13 +2,13 @@
 
 Official distribution repository for **QAICK Desktop**, a freeware API automation application by Zerohead One Inc.
 
-**QAICK Desktop 1.0.3** brings Studio, Runner and Mock Server together in one application. The verified installer checksums are preserved in [installers/1.0.3](installers/1.0.3/).
+**QAICK Desktop 1.0.4** brings Studio, Runner and Mock Server together in one application. The verified installer checksums are preserved in [installers/1.0.4](installers/1.0.4/).
 
-**QAICK Desktop 1.0.3 was publicly published on November 25, 2026.** Download the official [v1.0.3 GitHub release](https://github.com/vladmus/QAICK-Releases/releases/tag/v1.0.3). The earlier [Beta 1 prerelease](https://github.com/vladmus/QAICK-Releases/releases/tag/v1.0.0-rc.1) remains available separately.
+**QAICK Desktop 1.0.4 was publicly published on November 25, 2026.** Download the official [v1.0.4 GitHub release](https://github.com/vladmus/QAICK-Releases/releases/tag/v1.0.4).
 
-## New in 1.0.3
+## New in 1.0.4
 
-Runner corrects clipped error messages and removes the confusing Export JSON button. Use Save Run Result and Open Run Result for saving and reopening historical runs. Existing History and execution evidence remain unchanged. See [1.0.3 release notes](installers/1.0.3/RELEASE-NOTES.md). AI Agent integration is not included.
+Script Actions have a configurable timeout with a 60-second default. Production installers include mandatory code protection and exact-hash artifact verification. Windows upgrades preserve the previous installation during migration. A second launch focuses the existing Studio main window while preserving detached windows and current work. See [1.0.4 release notes](installers/1.0.4/RELEASE-NOTES.md). AI Agent integration is not included.
 
 ## What QAICK does
 
@@ -22,16 +22,16 @@ QAICK provides **API workflow automation and execution evidence**. Execution out
 
 ## Downloads
 
-The verified Desktop **1.0.3** installer filenames are listed below. Installer binaries are kept outside Git history for distribution through [GitHub Releases](https://github.com/vladmus/QAICK-Releases/releases). The official 1.0.3 download assets are publicly available in the [v1.0.3 release](https://github.com/vladmus/QAICK-Releases/releases/tag/v1.0.3).
+The verified Desktop **1.0.4** installer filenames are listed below. Installer binaries are kept outside Git history for distribution through [GitHub Releases](https://github.com/vladmus/QAICK-Releases/releases). The official 1.0.4 download assets are publicly available in the [v1.0.4 release](https://github.com/vladmus/QAICK-Releases/releases/tag/v1.0.4).
 
 | Operating system | Installer |
 | --- | --- |
-| macOS 13+ on Apple Silicon | `QAICK-Desktop-1.0.3-macOS-arm64.dmg` |
-| Windows x64 | `QAICK-Desktop-1.0.3-Windows-x64-Setup.exe` |
-| Linux x64 — AppImage | `QAICK-Desktop-1.0.3-Linux-x64.AppImage` |
-| Linux x64 — Debian package | `qaick-desktop_1.0.3_amd64.deb` |
+| macOS 13+ on Apple Silicon | `QAICK-Desktop-1.0.4-macOS-arm64.dmg` |
+| Windows x64 | `QAICK-Desktop-1.0.4-Windows-x64-Setup.exe` |
+| Linux x64 — AppImage | `QAICK-Desktop-1.0.4-Linux-x64.AppImage` |
+| Linux x64 — Debian package | `qaick-desktop_1.0.4_amd64.deb` |
 
-Check the installer against [1.0.3 SHA256SUMS](installers/1.0.3/SHA256SUMS) before installation. Save your work and close QAICK before replacing an installation.
+Check the installer against [1.0.4 SHA256SUMS](installers/1.0.4/SHA256SUMS) before installation. Save your work and close QAICK before replacing an installation.
 
 The macOS build is not Developer ID notarized and the Windows build is unsigned. macOS Gatekeeper and Windows SmartScreen may require a user-initiated exception. Do not disable operating-system security protections globally. Linux AppImage extract-and-run has been verified; FUSE/double-click launch has not.
 
@@ -45,15 +45,15 @@ QAICK Desktop is **proprietary freeware**. Personal, educational and commercial 
 
 ## Security and privacy
 
-Read the [Desktop 1.0.1 Security & Privacy report](SECURITY-AND-PRIVACY.md) for the existing 1.0.1 assessment, independently verified dictionary-download correction, IPv6 investigation and exact verification scope. It is not a separate security assessment of 1.0.3.
+Read the [Desktop 1.0.1 Security & Privacy report](SECURITY-AND-PRIVACY.md) for the existing 1.0.1 assessment, independently verified dictionary-download correction, IPv6 investigation and exact verification scope. It is not a separate security assessment of 1.0.4.
 
 Recording and execution evidence can contain credentials and sensitive request/response values. Review collections, Projects and exported results before sharing them.
 
 ## Release status
 
-The four 1.0.3 installers use the same corrected application payload and preserved application data identity. Linux packaged startup and About version were verified. Windows/macOS native installation was not repeated here; package-integrity verification is separate from native acceptance. Checksums are tracked in Git; binaries are distributed through GitHub Releases. Diagnostic packages and traces are excluded.
+All four Desktop 1.0.4 installers passed the mandatory production-protection gate and their complete public downloads match the approved SHA-256 checksums. The release preserves application data identity. Diagnostic packages, traces and AI Agent integration are excluded.
 
-This repository tracks release documents and checksums, **not** installer binaries or QAICK's private product source. Earlier Beta 1 documents and checksums remain available as historical records.
+This repository tracks release documents and checksums, **not** installer binaries or QAICK's private product source. Historical documents and checksums remain available; previous unprotected releases and installer downloads have been withdrawn.
 
 ## Feedback
 
@@ -61,8 +61,6 @@ Please use the product website at https://zerohead-one.com/ for contact and prod
 
 © 2026 Zerohead One Inc.
 
-## Local 1.0.4 preparation and protection gate
+## Production protection and verification
 
-Desktop 1.0.4 is a local candidate only; the public release above remains 1.0.3. See [candidate notes](installers/1.0.4/RELEASE-NOTES.md) and [candidate checksums](installers/1.0.4/SHA256SUMS). No 1.0.4 download is published.
-
-The existing upload operation is gated through `npm run publish:desktop -- VERSION ARTIFACT_DIRECTORY`. It checks the committed artifact manifest and SHA256SUMS, current protection policy/tool identity and exact-hash final-installer verification before invoking an upload. `--verify-only` performs the same checks without uploading. Missing, failed, obsolete or changed evidence blocks dispatch. OWNER publication authorization is still required. Local private build dependencies are not release assets.
+Desktop 1.0.4 is publicly available. The release documents and [SHA256SUMS](installers/1.0.4/SHA256SUMS) identify the exact distributed installers. Mandatory artifact protection verification precedes publication. Future release publication continues to require OWNER authorization.

@@ -63,7 +63,7 @@ This report covers QAICK Desktop. Hosted browser demos use browser storage and n
 
 ## Downloads and verification
 
-Download [QAICK Desktop 1.0.1](https://github.com/vladmus/QAICK-Releases/releases/tag/v1.0.1) and verify the installer against the accompanying [SHA256SUMS](https://github.com/vladmus/QAICK-Releases/releases/download/v1.0.1/SHA256SUMS). Installer checksums establish file identity, not a security verdict.
+Download [QAICK Desktop 1.0.4](https://github.com/vladmus/QAICK-Releases/releases/tag/v1.0.4) and verify the installer against the accompanying [SHA256SUMS](https://github.com/vladmus/QAICK-Releases/releases/download/v1.0.4/SHA256SUMS). Installer checksums establish file identity, not a security verdict.
 
 Windows installers are unsigned and macOS builds are ad-hoc signed, not notarized. Your operating system may display a publisher or security warning. Verify the download source and checksum; do not disable operating-system protections globally.
 
