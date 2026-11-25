@@ -1,6 +1,6 @@
 # QAICK Desktop — Credits
 
-**QAICK Desktop 1.0.2**
+**QAICK Desktop 1.0.3**
 
 Developed and distributed by **Zerohead One Inc.**
 
