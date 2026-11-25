@@ -1,71 +1,69 @@
 # QAICK Desktop — Security & Privacy
 
-**Version `1.0.1` · November 22, 2026**
+**Version 1.0.4 · Updated November 25, 2026**
 
-QAICK Desktop combines Studio, Runner and Mock Server in one local application for authoring API workflows, executing them and inspecting recorded evidence.
+QAICK Desktop combines Studio, Runner and Mock Server in a local application for creating API workflows, running them and inspecting recorded results.
 
-## Data handling and intentional requests
+## Your data stays on your computer
 
-QAICK's privacy requirement is that external data exchange occurs through explicit user intention. User-initiated API requests and their responses are part of normal application operation.
+Projects and Mock Server collections are saved to files you choose. Execution History is stored in the local application profile. Results can be inspected, copied and saved as Run Result files.
 
-The existing assessment found no transmission of Projects, credentials or execution History to Zerohead One, and no QAICK usage analytics or telemetry transmission in the exercised workflows. QAICK does not synchronize these records to a Zerohead One cloud service.
+QAICK Desktop does not synchronize Projects, credentials or History to a Zerohead One cloud service. No transmission of these records to Zerohead One, or usage analytics or telemetry transmission, was found in the verified workflows.
 
-Requests execute from your computer using the destinations, headers, credentials and values configured in your Actions and bindings. Optional Mock routing sends eligible requests to the integrated local Mock Server instead. Recorded execution evidence distinguishes the original API URL, effective destination and response source. The exercised failed Mock-routing case did not silently fall back to the original API.
+Local authoring, saved-result inspection and local Mock Server operation do not require an Internet connection. Requests to external APIs require connectivity to the destination you choose. Credits and License documents are bundled and available offline.
 
-## Local storage and recorded evidence
+## Requests are under your control
 
-- **Projects and Mock collections:** Saved to local files selected by the user.
-- **Execution History:** Retained in the local application profile.
-- **Results:** Available for inspection, copying and export.
-- **Recorded HTTP drafts:** Created by explicitly enabled Studio recording; inactive until approved and saved.
+API requests execute from your computer using the destinations, headers, credentials and values configured in your Actions and explicit bindings. Sending these requests and receiving their responses are intentional application operations.
 
-Projects, collections, History and exports can retain authorization headers, cookies, API keys and request/response content. QAICK preserves these original values as execution evidence; it does not silently redact them. Review files and copied evidence before sharing. Operating-system file permissions and clipboard-history settings apply. Files placed in a cloud-synchronized folder or network drive follow that location's storage behavior.
+Optional Mock routing sends eligible requests to the local Mock Server. Recorded results distinguish the original API address, actual destination and response source. The verified Mock-routing failure did not silently fall back to the real API.
 
-## Automatic dictionary download — corrected
+Studio HTTP recording is optional. When enabled, it creates draft mock rules from Studio Live Run traffic. Drafts remain inactive until reviewed and successfully saved.
 
-Sherlock's initial installed 1.0.1 assessment confirmed an automatic spelling-dictionary download from Google's redirector/CDN. Under the owner's requirement against unsolicited external data exchange, that was a confirmed failure. No Project or credential disclosure was demonstrated by that download.
+## Saved results may contain sensitive information
 
-Spellcheck was subsequently disabled before renderer creation, with its dictionary-language list cleared. No dictionaries were bundled.
+Projects, collections, History and saved results can contain authorization headers, cookies, API keys and request or response content. QAICK preserves original values as execution evidence and does not silently redact them.
 
-Sherlock's independent installed Linux retest confirmed:
+Review files and copied results before sharing. Operating-system file permissions and clipboard-history settings apply. Files saved in a cloud-synchronized folder or network drive follow that location's storage and sharing behavior.
 
-- No dictionary download, external Chromium URL request or dictionary file during the observed fresh-start and restart sessions.
-- Studio, Runner and Mock Server opened normally.
-- No fixture request occurred before explicit execution.
-- A user-initiated Script and HTTP workflow completed successfully and retained its configured synthetic authorization header and original response values.
-- History and exported execution evidence survived restart unchanged.
+Verification confirmed that recorded request and response values, including empty strings, zero, false and null, were preserved. The tested History records remained unchanged after restarting the application. Opening a saved Run Result did not execute the workflow again.
 
-The original failed assessment remains preserved separately. Its result is not rewritten as a pass.
+## Local Mock Server
 
-## IPv6 reachability observation — investigated
+The integrated Mock Server listens on `127.0.0.1`, using a port assigned automatically when it starts. This address is local to your computer. The verified listener was not bound to a LAN-facing address; access through the computer's LAN address was refused.
 
-The corrected-build retest recorded a UDP connection attempt to `[2001:4860:4860::8888]:443` that failed locally with `ENETUNREACH`. No successful external connection or subsequent external send was observed.
+The current address is displayed in Mock Server. Local mock requests and responses remain on your computer unless you deliberately configure other external activity.
 
-The matching Chromium source and recorded NetLog identify this as an IPv6 route-availability check triggered while connecting to the local Mock Server. On the inspected Linux path, the probe associates a UDP socket with a destination and reads its local address; it does not send or receive an application datagram. Port 443 is the source-defined default, not evidence of an HTTPS, QUIC or DNS exchange.
+## No automatic spelling downloads
 
-Archi reviewed the source investigation and concluded that no violation of the owner's external-data-exchange requirement was confirmed, and no correction was recommended. This conclusion combines recorded Linux observations with source inspection; an IPv6-connected runtime experiment was not performed.
+Spellcheck and its dictionary services are disabled. QAICK Desktop does not bundle or automatically download spelling dictionaries. Independent startup and restart checks found no dictionary download.
 
-## Verification basis and result
+## Script execution controls
 
-**Independent investigator:** Sherlock. Initial assessment: November 21–22, 2026. Corrected installed-build retest: November 22, 2026. **Source investigation:** Codi, reviewed by Archi.
+Script Actions run in the existing sandbox with a default execution limit of **60 seconds**. You can configure the timeout for each Script Action. Existing Scripts without an explicit timeout use the default.
 
-The retest used the installed Linux Desktop 1.0.1, isolated application profiles and synthetic data. It covered fresh startup, idle periods, all three component views, one intentional Script/HTTP execution, restart, History and exported-result equality. Chromium NetLog and process-tree network syscall records supplied the network observations. All 1,471 installed package files matched the tested DEB and remained unchanged. Existing evidence evaluation recorded 21 passing comparisons; negative controls rejected an added dictionary request and altered response data.
+Manual cancellation remains available. The overall Run timeout is separate and can stop execution sooner. Verified timeout and cancellation checks retained the actual outcome without inventing successful outputs. These controls do not constitute an exhaustive guarantee against every possible malicious Script.
 
-The independently retested DEB SHA-256 was `3590284a94588f69f72b66e323bc856c5f61144b2e267edc4f43f91c50322f2c`. Its manifest identified Studio 0.11.49, Runner 0.32.43, Mock Server 0.8.5 and Electron 44.10.2. This identifies the tested package precisely because later installers retain version 1.0.1.
+## Verification coverage
 
-**Result:** The unsolicited dictionary-download correction passed the bounded installed Linux retest. No unintended external data transfer was demonstrated in the observed corrected-build sessions. Original credentials, zero, false, empty strings, null and nested response values were preserved.
+Developer verification and independent assessment support this report. Independent checks of the final Linux 1.0.4 application covered startup, idle operation, navigation through Studio, Runner and Mock Server, an explicitly initiated Script/HTTP workflow, normal restart and History preservation. **No unintended external data exchange was demonstrated in those observed paths.** The deliberate HTTP request used a controlled local endpoint, and the recorded request and response matched the actual exchange.
 
-This report summarizes existing evidence; no testing was repeated for this update. The security retest applies to the identified Linux package and workflows. Later installer rebuilds and their checksums identify the distributed files; they are not additional independent security tests. No 1.0.1 Windows/macOS security retest is claimed. The work was a focused assessment, not a full penetration test or security certification; Chromium NetLog alone does not cover all native HTTP traffic.
+Script timeout and cancellation controls also have developer verification and independent Linux verification from an earlier 1.0.4 build. This is separate from the final-build privacy assessment.
 
-## Desktop and browser demos
+All four installer identities below were verified. The same native privacy assessment was not performed on Windows or macOS. These are focused verification results, not a full penetration test, security certification or guarantee covering every possible workflow and environment.
 
-This report covers QAICK Desktop. Hosted browser demos use browser storage and networking rules. The hosted Mock Server demo is an authoring interface, not a publicly callable mock endpoint service.
+## Downloads and file verification
 
-## Downloads and verification
+Download [QAICK Desktop 1.0.4](https://github.com/vladmus/QAICK-Releases/releases/tag/v1.0.4) and compare the installer with the accompanying [SHA256SUMS](https://github.com/vladmus/QAICK-Releases/releases/download/v1.0.4/SHA256SUMS). A matching checksum confirms file identity; it is not a security verdict.
 
-Download [QAICK Desktop 1.0.4](https://github.com/vladmus/QAICK-Releases/releases/tag/v1.0.4) and verify the installer against the accompanying [SHA256SUMS](https://github.com/vladmus/QAICK-Releases/releases/download/v1.0.4/SHA256SUMS). Installer checksums establish file identity, not a security verdict.
+| Installer | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `QAICK-Desktop-1.0.4-Linux-x64.AppImage` | 132040496 | `43ed8bb3a9ba6b1d74b27b0a7e5f493ed940fc5fc0cb1f4ba70d6b4bb15e539b` |
+| `qaick-desktop_1.0.4_amd64.deb` | 104167404 | `5d149c0cf26d5dfb3438290e3cb07497aa7abb18ffc88a39db0dcda9792b1eeb` |
+| `QAICK-Desktop-1.0.4-Windows-x64-Setup.exe` | 118958367 | `220bfefc038fa42e297eb159b9c7c53be6a671d2ba309d22bd70d2bfac6f1fcb` |
+| `QAICK-Desktop-1.0.4-macOS-arm64.dmg` | 136506684 | `79662fe253ca1200481cd3a69d754303f77e167eee9a84c88e9664f16cde8ea3` |
 
-Windows installers are unsigned and macOS builds are ad-hoc signed, not notarized. Your operating system may display a publisher or security warning. Verify the download source and checksum; do not disable operating-system protections globally.
+Windows installers are unsigned. macOS builds are ad-hoc signed and not notarized. Your operating system may display a publisher or security warning. Verify the download source and checksum; do not disable operating-system protections globally.
 
 ## Contact
 
